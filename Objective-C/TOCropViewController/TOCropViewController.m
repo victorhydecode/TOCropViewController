@@ -1238,14 +1238,24 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
     return insets;
 }
 
-- (void)setMinimumAspectRatio:(CGFloat)minimumAspectRatio
+- (void)setMinimumAspectRatioPortrait:(CGFloat)minimumAspectRatioPortrait
 {
-    self.cropView.minimumAspectRatio = minimumAspectRatio;
+    self.cropView.minimumAspectRatioPortrait = minimumAspectRatioPortrait;
 }
 
-- (CGFloat)minimumAspectRatio
+- (CGFloat)minimumAspectRatioPortrait
 {
-    return self.cropView.minimumAspectRatio;
+    return self.cropView.minimumAspectRatioPortrait;
+}
+
+- (void)setMinimumAspectRatioLandscape:(CGFloat)minimumAspectRatioLandscape
+{
+    self.cropView.minimumAspectRatioLandscape = minimumAspectRatioLandscape;
+}
+
+- (CGFloat)minimumAspectRatioLandscape
+{
+    return self.cropView.minimumAspectRatioLandscape;
 }
 
 @end

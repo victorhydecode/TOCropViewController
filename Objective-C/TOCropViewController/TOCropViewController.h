@@ -91,9 +91,14 @@
 @property (nonnull, nonatomic, readonly) UIImage *image;
 
 /**
- The minimum croping aspect ratio. If set, user is prevented from setting cropping rectangle to lower aspect ratio than defined by the parameter.
+ The minimum croping portrait aspect ratio. If set, user is prevented from setting cropping rectangle to lower aspect ratio than defined by the parameter.
  */
-@property (nonatomic, assign) CGFloat minimumAspectRatio;
+@property (nonatomic, assign) CGFloat minimumAspectRatioPortrait;
+
+/**
+ The minimum croping landscape aspect ratio. If set, user is prevented from setting cropping rectangle to lower aspect ratio than defined by the parameter.
+ */
+@property (nonatomic, assign) CGFloat minimumAspectRatioLandscape;
 
 /**
  The view controller's delegate that will receive the resulting

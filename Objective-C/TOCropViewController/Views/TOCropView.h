@@ -160,10 +160,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSTimeInterval cropAdjustingDelay;
 
 /**
-The minimum croping aspect ratio. If set, user is prevented from setting cropping
+The minimum croping portrait aspect ratio. If set, user is prevented from setting cropping
  rectangle to lower aspect ratio than defined by the parameter.
 */
-@property (nonatomic, assign) CGFloat minimumAspectRatio;
+@property (nonatomic, assign) CGFloat minimumAspectRatioPortrait;
+
+/**
+ The minimum croping landscape aspect ratio. If set, user is prevented from setting cropping
+ rectangle to lower aspect ratio than defined by the parameter.
+ */
+@property (nonatomic, assign) CGFloat minimumAspectRatioLandscape;
 
 /**
  The maximum scale that user can apply to image by pinching to zoom. Small values

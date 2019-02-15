@@ -454,11 +454,13 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
             }
             CGFloat newWidth = originFrame.size.width - xDelta;
             CGFloat newHeight = originFrame.size.height;
-            if (MIN(newHeight, newWidth) / MAX(newHeight, newWidth) >= (double)_minimumAspectRatio) {
+            CGFloat newAspectRatio = newWidth / newHeight;
+            if ((newAspectRatio >= (double)_minimumAspectRatioPortrait)
+                && (newAspectRatio <= (double)_minimumAspectRatioLandscape)) {
                 frame.origin.x   = originFrame.origin.x + xDelta;
                 frame.size.width = originFrame.size.width - xDelta;
             }
-            
+
             clampMinFromLeft = YES;
             
             break;
@@ -474,7 +476,9 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
             else {
                 CGFloat newWidth = originFrame.size.width + xDelta;
                 CGFloat newHeight = originFrame.size.height;
-                if (MIN(newHeight, newWidth) / MAX(newHeight, newWidth) >= (double)_minimumAspectRatio) {
+                CGFloat newAspectRatio = newWidth / newHeight;
+                if ((newAspectRatio >= (double)_minimumAspectRatioPortrait)
+                    && (newAspectRatio <= (double)_minimumAspectRatioLandscape)) {
                     frame.size.width = originFrame.size.width + xDelta;
                 }
             }
@@ -492,8 +496,9 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
             else {
                 CGFloat newWidth = originFrame.size.width;
                 CGFloat newHeight = originFrame.size.height + yDelta;
-                
-                if (MIN(newHeight, newWidth) / MAX(newHeight, newWidth) >= (double)_minimumAspectRatio) {
+                CGFloat newAspectRatio = newWidth / newHeight;
+                if ((newAspectRatio >= (double)_minimumAspectRatioPortrait)
+                    && (newAspectRatio <= (double)_minimumAspectRatioLandscape)) {
                     frame.size.height = originFrame.size.height + yDelta;
                 }
             }
@@ -511,8 +516,9 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
             else {
                 CGFloat newWidth = originFrame.size.width;
                 CGFloat newHeight = originFrame.size.height - yDelta;
-                
-                if (MIN(newHeight, newWidth) / MAX(newHeight, newWidth) >= (double)_minimumAspectRatio) {
+                CGFloat newAspectRatio = newWidth / newHeight;
+                if ((newAspectRatio >= (double)_minimumAspectRatioPortrait)
+                    && (newAspectRatio <= (double)_minimumAspectRatioLandscape)) {
                     frame.origin.y    = originFrame.origin.y + yDelta;
                     frame.size.height = originFrame.size.height - yDelta;
                 }
@@ -543,8 +549,9 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
             else {
                 CGFloat newWidth = originFrame.size.width - xDelta;
                 CGFloat newHeight = originFrame.size.height - yDelta;
-                
-                if (MIN(newHeight, newWidth) / MAX(newHeight, newWidth) >= (double)_minimumAspectRatio) {
+                CGFloat newAspectRatio = newWidth / newHeight;
+                if ((newAspectRatio >= (double)_minimumAspectRatioPortrait)
+                    && (newAspectRatio <= (double)_minimumAspectRatioLandscape)) {
                     frame.origin.x   = originFrame.origin.x + xDelta;
                     frame.size.width = originFrame.size.width - xDelta;
                     frame.origin.y   = originFrame.origin.y + yDelta;
@@ -577,8 +584,9 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
             else {
                 CGFloat newWidth = originFrame.size.width + xDelta;
                 CGFloat newHeight = originFrame.size.height - yDelta;
-                
-                if (MIN(newHeight, newWidth) / MAX(newHeight, newWidth) >= (double)_minimumAspectRatio) {
+                CGFloat newAspectRatio = newWidth / newHeight;
+                if ((newAspectRatio >= (double)_minimumAspectRatioPortrait)
+                    && (newAspectRatio <= (double)_minimumAspectRatioLandscape)) {
                     frame.size.width  = originFrame.size.width + xDelta;
                     frame.origin.y    = originFrame.origin.y + yDelta;
                     frame.size.height = originFrame.size.height - yDelta;
@@ -606,8 +614,9 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
             else {
                 CGFloat newWidth = originFrame.size.width - xDelta;
                 CGFloat newHeight = originFrame.size.height + yDelta;
-                
-                if (MIN(newHeight, newWidth) / MAX(newHeight, newWidth) >= (double)_minimumAspectRatio) {
+                CGFloat newAspectRatio = newWidth / newHeight;
+                if ((newAspectRatio >= (double)_minimumAspectRatioPortrait)
+                    && (newAspectRatio <= (double)_minimumAspectRatioLandscape)) {
                     frame.size.height = originFrame.size.height + yDelta;
                     frame.origin.x    = originFrame.origin.x + xDelta;
                     frame.size.width  = originFrame.size.width - xDelta;
@@ -635,8 +644,9 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
             else {
                 CGFloat newWidth = originFrame.size.width + xDelta;
                 CGFloat newHeight = originFrame.size.height + yDelta;
-                
-                if (MIN(newHeight, newWidth) / MAX(newHeight, newWidth) >= (double)_minimumAspectRatio) {
+                CGFloat newAspectRatio = newWidth / newHeight;
+                if ((newAspectRatio >= (double)_minimumAspectRatioPortrait)
+                    && (newAspectRatio <= (double)_minimumAspectRatioLandscape)) {
                     frame.size.height = originFrame.size.height + yDelta;
                     frame.size.width = originFrame.size.width + xDelta;
                 }
