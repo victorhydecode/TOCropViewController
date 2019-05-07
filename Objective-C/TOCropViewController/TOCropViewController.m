@@ -292,11 +292,11 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
     //at the time we need it, the size of our view will be incorrect.
     //If this is the case, derive our view size from our parent view controller instead
     UIView *view = nil;
-    if (self.parentViewController == nil) {
-        view = self.view;
+    if (self.parentViewController != nil && self.view.superview != nil) {
+        view = self.view.superview;
     }
     else {
-        view = self.parentViewController.view;
+        view = self.view;
     }
 
     UIEdgeInsets insets = self.statusBarSafeInsets;
