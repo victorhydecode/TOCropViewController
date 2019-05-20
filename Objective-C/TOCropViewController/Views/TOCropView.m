@@ -1696,7 +1696,8 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
                 BOOL aspectRatioCanSwapDimensions = !self.aspectRatioLockEnabled ||
                 (self.aspectRatioLockEnabled && self.aspectRatioLockDimensionSwapEnabled);
                 
-                if (!aspectRatioCanSwapDimensions) {
+                if ((!aspectRatioCanSwapDimensions) ||
+                    (self.minimumAspectRatioPortrait != self.minimumAspectRatioLandscape)) {
                     //This will animate the aspect ratio back to the desired locked ratio after the image is rotated.
                     [self setAspectRatio:self.aspectRatio animated:animated];
                 }
