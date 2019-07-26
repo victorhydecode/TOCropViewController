@@ -577,8 +577,8 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
     //Prepare the list that will be fed to the alert view/controller
     
     // Ratio titles according to the order of enum TOCropViewControllerAspectRatioPreset
-    NSArray<NSString *> *portraitRatioTitles = @[originalButtonTitle, squareButtonTitle, @"2:3", @"3:5", @"3:4", @"4:5", @"5:7", @"9:16"];
-    NSArray<NSString *> *landscapeRatioTitles = @[originalButtonTitle, squareButtonTitle, @"3:2", @"5:3", @"4:3", @"5:4", @"7:5", @"16:9"];
+    NSArray<NSString *> *portraitRatioTitles = @[originalButtonTitle, squareButtonTitle, @"2:3", @"3:5", @"3:4", @"4:5", @"5:7", @"9:16", @"4:5", @"1.91:1"];
+    NSArray<NSString *> *landscapeRatioTitles = @[originalButtonTitle, squareButtonTitle, @"3:2", @"5:3", @"4:3", @"5:4", @"7:5", @"16:9", @"4:5", @"1.91:1"];
 
     NSMutableArray *ratioValues = [NSMutableArray array];
     NSMutableArray *itemStrings = [NSMutableArray array];
@@ -659,21 +659,13 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
         case TOCropViewControllerAspectRatioPresetCustom:
             aspectRatio = self.customAspectRatio;
             break;
-    }
-    
-    // If the aspect ratio lock is not enabled, allow a swap
-    // If the aspect ratio lock is on, allow a aspect ratio swap
-    // only if the allowDimensionSwap option is specified.
-    BOOL aspectRatioCanSwapDimensions = !self.aspectRatioLockEnabled ||
-                                (self.aspectRatioLockEnabled && self.aspectRatioLockDimensionSwapEnabled);
-    
-    //If the image is a portrait shape, flip the aspect ratio to match
-    if (self.cropView.cropBoxAspectRatioIsPortrait &&
-        aspectRatioCanSwapDimensions)
-    {
-        CGFloat width = aspectRatio.width;
-        aspectRatio.width = aspectRatio.height;
-        aspectRatio.height = width;
+        case TOCropViewControllerAspectRatioPresetReposhPortrait:
+            aspectRatio = CGSizeMake(4.0f, 5.0f); // 4 / 5
+            break;
+        case TOCropViewControllerAspectRatioPresetReposhLandscape:
+            aspectRatio = CGSizeMake(1.91f, 1.0f); // 1.91 / 1
+            break;
+
     }
     
     [self.cropView setAspectRatio:aspectRatio animated:animated];
