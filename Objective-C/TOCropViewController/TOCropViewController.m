@@ -660,10 +660,10 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
             aspectRatio = self.customAspectRatio;
             break;
         case TOCropViewControllerAspectRatioPresetReposhPortrait:
-            aspectRatio = CGSizeMake(4.0f, 5.0f); // 4 / 5
+            aspectRatio = CGSizeMake(0.85f, 1.0f); // 4 / 5
             break;
         case TOCropViewControllerAspectRatioPresetReposhLandscape:
-            aspectRatio = CGSizeMake(1.91f, 1.0f); // 1.91 / 1
+            aspectRatio = CGSizeMake(1.86f, 1.0f); // 1.91 / 1
             break;
 
     }
